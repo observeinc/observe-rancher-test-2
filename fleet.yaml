@@ -1,5 +1,4 @@
 defaultNamespace: observe
 
-# "resources:" tells Fleet to include the listed YAML files in the same folder
 resources:
   - dummy-daemonset.yaml
