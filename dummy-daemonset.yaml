@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: dummy-daemonset
+  # This ensures it goes to the "observe" namespace.
+  # If you omit it here, Fleet places it in "observe" anyway (due to defaultNamespace).
+  namespace: observe
+spec:
+  selector:
+    matchLabels:
+      app: dummy
+  template:
+    metadata:
+      labels:
+        app: dummy
+    spec:
+      # We'll just run a busybox container in an infinite sleep
+      containers:
+      - name: dummy-container
+        image: busybox
+        command: ["sh", "-c", "echo Hello from dummy DaemonSet && sleep 3600"]
