@@ -1,5 +1,7 @@
 defaultNamespace: observe
 
-resources:
-  - name: dummy-daemonset        # arbitrary name for the resource
-    path: dummy-daemonset.yaml   # path to the manifest file
+releases:
+  - name: observe-agent
+    chart:
+      repo: "https://observeinc.github.io/helm-charts"
+      name: "agent"
