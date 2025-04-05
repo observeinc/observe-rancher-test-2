@@ -1,4 +1,5 @@
 defaultNamespace: observe
 
 resources:
-  - dummy-daemonset.yaml
+  - name: dummy-daemonset        # arbitrary name for the resource
+    path: dummy-daemonset.yaml   # path to the manifest file
