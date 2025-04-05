@@ -1,5 +1,22 @@
 defaultNamespace: observe
 
 resources:
-  - name: dummy-daemonset        # arbitrary name for the resource
-    path: dummy-daemonset.yaml   # path to the manifest file
+  - name: dummy-daemonset
+    content: |
+      apiVersion: apps/v1
+      kind: DaemonSet
+      metadata:
+        name: dummy-daemonset
+      spec:
+        selector:
+          matchLabels:
+            app: dummy
+        template:
+          metadata:
+            labels:
+              app: dummy
+          spec:
+            containers:
+            - name: dummy-container
+              image: busybox
+              command: ["sh", "-c", "echo Hello from dummy DaemonSet && sleep 3600"]
